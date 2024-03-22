@@ -1,7 +1,12 @@
+import React from 'react';
+import { Metadata } from 'next';
+import View from '@/components/pages/dashboard';
+
+export const metadata: Metadata = {
+  title: 'Question Time - Home',
+  description: '',
+};
+
 export default function Home() {
-  return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      Dashboard
-    </main>
-  );
+  return <View />;
 }
