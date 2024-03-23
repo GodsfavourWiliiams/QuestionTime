@@ -34,7 +34,6 @@ export function AuthForm({ className, ...props }: AuthFormProps) {
     isLoading,
     isError: isLoginError,
     isSuccess: isLoginSuccess,
-    error: loginError,
   } = useLogin();
   const form = useForm({
     resolver: zodResolver(loginFormSchema),
@@ -60,18 +59,12 @@ export function AuthForm({ className, ...props }: AuthFormProps) {
         description: 'Successful',
       });
     }
-    return () => {
-      toast.dismiss();
-    };
   }, [isLoginSuccess]);
 
   useEffect(() => {
     if (isLoginError) {
       toast.error('Login Error', { description: 'Error' });
     }
-    return () => {
-      toast.dismiss();
-    };
   }, [isLoginError]);
 
   return (
@@ -100,7 +93,7 @@ export function AuthForm({ className, ...props }: AuthFormProps) {
             )}
           />
           <Button
-            disabled={isLoading}
+            disabled={isLoading || isLoginSuccess}
             type="submit"
             size="lg"
             className="w-full"

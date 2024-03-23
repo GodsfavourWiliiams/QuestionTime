@@ -20,47 +20,16 @@ export const columns: ColumnDef<any>[] = [
   },
   {
     accessorKey: 'no_options',
-    header: ({ column }) => {
-      return (
-        <Button
-          variant="ghost"
-          onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
-        >
-          Options
-          <CaretSortIcon className="ml-2 h-4 w-4" />
-        </Button>
-      );
-    },
+    header: 'Options',
     cell: ({ row }) => (
-      <div className="lowercase">{row.getValue('no_options')}</div>
+      <div className="ml-6">{row.original?.options.length}</div>
     ),
-  },
-  {
-    accessorKey: 'date',
-    header: ({ column }) => {
-      return (
-        <Button
-          variant="ghost"
-          onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
-        >
-          Date
-          <CaretSortIcon className="ml-2 h-4 w-4" />
-        </Button>
-      );
-    },
-    cell: ({ row }) => {
-      return (
-        <div className="w-40">
-          <span>{row.getValue('date')}</span>
-        </div>
-      );
-    },
   },
   {
     id: 'action',
     enableHiding: false,
     header: () => (
-      <span className="w-full flex justify-end text-xs">Action</span>
+      <span className="w-full flex justify-end text-xs">Actions</span>
     ),
     cell: ({ row }) => <DataTableRowActions row={row} />,
   },
@@ -89,7 +58,7 @@ export function DataTableRowActions({ row }: DataTableRowActionsProps) {
         }}
         className="flex h-8 w-8 p-0 hover:bg-[#E03137]/80 bg-[#E03137] "
       >
-        <Icons.DeleteIcon className="w-4 h-4" />
+        <Icons.DeleteIcon className="w-4 h-4 text-white" />
       </Button>
     </div>
   );

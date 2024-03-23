@@ -5,7 +5,7 @@ import { TOKEN } from '@/lib/utils';
 export const setAuthToken = (token: string) => {
   if (token) {
     // Apply to every request
-    axios.defaults.headers.Token = `Bearer ${token}`;
+    axios.defaults.headers.Token = `${token}`;
   } else {
     // Delete auth header
     delete axios.defaults.headers['Token'];
@@ -49,7 +49,7 @@ export const cancelTokenSource = axios.CancelToken.source();
 // Intercept requests
 axiosInstance.interceptors.request.use(
   async (config: any) => {
-    config.headers.Authorization = getAuthorizationHeader();
+    config.headers.Token = getAuthorizationHeader();
     return config;
   },
   (error: any) => {

@@ -12,11 +12,11 @@ const ToastProvider = () => {
       closeButton
       visibleToasts={3}
       toastOptions={{
-        className: "",
-        duration: 3500,
+        className: '',
+        duration: 3000,
         style: {
-          borderRadius: "16px",
-          fontSize: "14px",
+          borderRadius: '16px',
+          fontSize: '14px',
         },
       }}
     />

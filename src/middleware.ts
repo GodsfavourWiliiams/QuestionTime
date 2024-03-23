@@ -38,7 +38,6 @@ export async function middleware(request: NextRequest) {
 
   if (!isLoggedIn) {
     // User is not authenticated
-    // If the user is not logged in or doesn't have a role, redirect them to the login page
     return NextResponse.redirect(new URL('/login', request.nextUrl.origin));
   }
 }

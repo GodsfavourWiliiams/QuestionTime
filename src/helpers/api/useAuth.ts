@@ -5,6 +5,7 @@ import { URL } from '@/lib/routes';
 import { TOKEN } from '@/lib/utils';
 import { QueryClient, useMutation } from '@tanstack/react-query';
 import { useRouter } from 'next/navigation';
+import { QueryCache } from '@tanstack/react-query';
 
 export const useLogin = () => {
   const router = useRouter();
@@ -34,6 +35,7 @@ export const useLogout = () => {
   const router = useRouter();
   const { removeCookie } = useCookies();
   const queryClient = new QueryClient();
+  const queryCache = new QueryCache();
 
   const clearUserData = () => {
     removeCookie(TOKEN.ACCESS);
@@ -41,11 +43,12 @@ export const useLogout = () => {
 
   const logoutUser = async () => {
     clearUserData();
+    await queryClient.invalidateQueries();
+    queryCache.clear();
+    queryClient.clear();
+    await queryClient.resetQueries();
     router.push('/');
     router.refresh();
-    await queryClient.invalidateQueries();
-    queryClient.removeQueries();
-    queryClient.clear();
   };
 
   return { logoutUser };

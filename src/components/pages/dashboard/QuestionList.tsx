@@ -1,34 +1,93 @@
 'use client';
 
-import { cn } from '@/lib/utils';
 import {
   Dialog,
   DialogContent,
   DialogFooter,
   DialogHeader,
   DialogTitle,
-  DialogDescription,
 } from '@/components/ui/dialog';
 import useDisclosure from '@/hooks/useDisclosure';
 import { Button } from '@/components/ui/button';
-import { useForm } from 'react-hook-form';
-import { Form } from '@/components/ui/form';
 import { PlusIcon } from '@radix-ui/react-icons';
 import { QuestionTable } from './Table';
-// import { zodResolver } from '@hookform/resolvers/zod';
+import { useCreateQuestions, useGetQuestions } from '@/helpers/api/useQuestion';
+import { useForm } from 'react-hook-form';
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from '@/components/ui/form';
+import { Input } from '@/components/ui/input';
+import { OptionField } from './optionsForm';
+import { toast } from 'sonner';
+import { useEffect } from 'react';
+import { Icons } from '@/assets/icons';
 
-type Props = {};
+interface OptionsFormData {
+  question: string;
+  options: {
+    option: string;
+  }[];
+}
 
-const QuestionList = (props: Props) => {
+const QuestionList = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
-
+  const { isLoading, data: payload, refetch } = useGetQuestions();
+  const {
+    isLoading: creatingQuestion,
+    isError: isQuestionError,
+    isSuccess: questionSuccess,
+    mutate,
+  } = useCreateQuestions();
+  const optionsDefaultValues: OptionsFormData = {
+    question: '',
+    options: [{ option: '' }, { option: '' }, { option: '' }],
+  };
   const form = useForm({
-    // resolver: zodResolver(),
+    defaultValues: optionsDefaultValues,
   });
 
+  const {
+    formState: { errors },
+  } = form;
+
   const onSubmit = () => {
-    onClose();
+    form.handleSubmit((data: any) => {
+      const optionsArray = data.options.map(
+        (item: { option: string }) => item.option
+      );
+      // Remove the original 'goals' field from the data object
+      delete data.options;
+      data.options = optionsArray;
+      mutate(data);
+    })();
   };
+
+  const dataArray = payload
+    ? Object.keys(payload).map((key) => ({
+        id: key,
+        ...payload[key],
+      }))
+    : [];
+
+  useEffect(() => {
+    if (questionSuccess) {
+      toast.success('Question created successfully');
+      refetch();
+      onClose();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [questionSuccess, refetch]);
+
+  useEffect(() => {
+    if (isQuestionError) {
+      toast.error('Error creating question');
+    }
+  }, [isQuestionError]);
 
   return (
     <>
@@ -44,7 +103,11 @@ const QuestionList = (props: Props) => {
             New Question
           </Button>
         </div>
-        <QuestionTable />
+        <QuestionTable
+          isLoading={isLoading}
+          data={dataArray ?? []}
+          refetch={refetch}
+        />
       </div>
       <Dialog
         open={isOpen}
@@ -52,34 +115,61 @@ const QuestionList = (props: Props) => {
           onClose();
         }}
       >
-        <DialogContent className="sm:max-w-[687px] outline-none">
+        <DialogContent className="sm:max-w-[500px] outline-none">
           <DialogHeader className="gap-1.5">
             <DialogTitle className="text-lg">
               {' '}
               Create a new question
             </DialogTitle>
-            <DialogDescription className="text-base font-normal text-[#687588]">
-              Provide details about your question here.
-            </DialogDescription>
           </DialogHeader>
           <Form {...form}>
             <form
-              className="flex flex-col gap-4 mt-3"
+              className="flex flex-col gap-4"
               onSubmit={(e) => {
                 e.preventDefault(); // Prevent the default form submission
                 onSubmit();
               }}
             >
-              <h1>Body</h1>
-              {/* Assuming PaymentForm is a separate component */}
+              <FormField
+                control={form.control}
+                name="question"
+                rules={{ required: true }}
+                render={({ field }) => (
+                  <FormItem>
+                    {' '}
+                    <FormLabel>Question</FormLabel>
+                    <FormControl className="w-full">
+                      <Input
+                        autoFocus
+                        error={!!errors.question}
+                        {...field}
+                        id="question"
+                        placeholder="How may I help you today?"
+                        type="text"
+                        autoCapitalize="none"
+                        autoCorrect="off"
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <OptionField
+                control={form.control}
+                errors={errors}
+                name="options"
+              />
               <DialogFooter>
                 <Button
                   type="submit"
                   size="lg"
                   className="rounded-xl p-3.5 text-s w-full mt-4 text-white h-[52px]"
                   variant="default"
-                  disabled={false}
+                  disabled={creatingQuestion}
                 >
+                  {creatingQuestion && (
+                    <Icons.spinner className="mr-2 h-4 w-4 animate-spin" />
+                  )}
                   Submit
                 </Button>
               </DialogFooter>

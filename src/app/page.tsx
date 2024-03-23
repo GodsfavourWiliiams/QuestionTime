@@ -5,6 +5,6 @@ export const metadata: Metadata = {
   title: 'Authentication',
   description: 'Login form.',
 };
-export default function Home() {
+export default function Auth() {
   return <AuthenticationPage />;
 }

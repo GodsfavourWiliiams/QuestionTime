@@ -23,7 +23,16 @@ import {
 } from '@/components/ui/table';
 import { columns } from './TableColumn';
 
-export function QuestionTable() {
+interface DataTableProps<TData, TValue> {
+  data: TData[];
+  isLoading?: boolean;
+  refetch?: () => void;
+}
+
+export function QuestionTable<TData, TValue>({
+  isLoading,
+  data,
+}: DataTableProps<TData, TValue>) {
   const [sorting, setSorting] = React.useState<SortingState>([]);
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
     []
@@ -31,7 +40,6 @@ export function QuestionTable() {
   const [columnVisibility, setColumnVisibility] =
     React.useState<VisibilityState>({});
   const [rowSelection, setRowSelection] = React.useState({});
-  const [data] = React.useState([]);
   const table = useReactTable({
     data,
     columns,
@@ -52,7 +60,7 @@ export function QuestionTable() {
   });
 
   return (
-    <div className="w-full space-y-4">
+    <div className="w-full ">
       <div className=" rounded-md">
         <Table>
           <TableHeader>
@@ -74,8 +82,18 @@ export function QuestionTable() {
             ))}
           </TableHeader>
           <TableBody>
-            {table.getRowModel().rows?.length ? (
-              table.getRowModel().rows.map((row) => (
+            {isLoading ? (
+              Array.from(Array(10).keys()).map((id) => (
+                <TableRow key={id}>
+                  {Array.from(Array(3).keys()).map((row) => (
+                    <TableCell key={row} className="py-6 pl-2 pr-3">
+                      <div className="w-full h-4 rounded-md animate-pulse bg-slate-200" />
+                    </TableCell>
+                  ))}
+                </TableRow>
+              ))
+            ) : (table?.getRowModel()?.rows ?? []).length !== 0 ? (
+              table?.getRowModel().rows.map((row) => (
                 <TableRow
                   key={row.id}
                   data-state={row.getIsSelected() && 'selected'}
@@ -104,7 +122,7 @@ export function QuestionTable() {
         </Table>
       </div>
       {data && data?.length > 0 && (
-        <div className="flex items-center justify-end space-x-2 px-5 py-3">
+        <div className="flex items-center justify-end space-x-2 px-5 pt-5 border-t">
           <div className="space-x-2">
             <Button
               variant="outline"
