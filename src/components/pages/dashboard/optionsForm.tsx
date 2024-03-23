@@ -68,7 +68,7 @@ export const OptionField: React.FC<OptionFieldProps> = ({
                         placeholder={`Enter option ${index + 1}`}
                         className="h-12"
                         endContent={
-                          index > 2 ? (
+                          fields.length > 3 ? (
                             <Button
                               type="button"
                               className="bg-transparent hover:bg-transparent p-0"

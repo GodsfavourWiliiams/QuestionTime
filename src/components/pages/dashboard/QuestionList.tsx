@@ -78,6 +78,7 @@ const QuestionList = () => {
     if (questionSuccess) {
       toast.success('Question created successfully');
       refetch();
+      form.reset(optionsDefaultValues);
       onClose();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps

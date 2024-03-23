@@ -117,6 +117,7 @@ export function DataTableRowActions({
         open={isOpen}
         onOpenChange={() => {
           onClose();
+          form.reset(question);
         }}
       >
         <DialogContent className="sm:max-w-[500px] outline-none">
