@@ -8,6 +8,7 @@ import {
 import { Input } from '@/components/ui/input';
 import { Icons } from '@/assets/icons';
 import { Button } from '@/components/ui/button';
+import { useEffect } from 'react';
 
 interface OptionFieldProps {
   control: any;
@@ -21,12 +22,32 @@ export const OptionField: React.FC<OptionFieldProps> = ({
   control,
   name,
   errors,
+  data,
+  isSuccess,
 }) => {
-  const { fields, append, remove } = useFieldArray({
+  const { fields, append, remove, replace } = useFieldArray({
     control,
     keyName: 'fieldId',
     name,
   });
+
+  useEffect(() => {
+    if (isSuccess) {
+      replace(
+        Array.isArray(data) && data.length > 0
+          ? data.map((item: any) => ({
+              option: item.option || '',
+            }))
+          : [
+              {
+                name: '',
+                amount: '',
+              },
+            ]
+      );
+    }
+    return () => {};
+  }, [data, isSuccess, replace]);
 
   return (
     <>

@@ -27,7 +27,7 @@ import { toast } from 'sonner';
 import { useEffect } from 'react';
 import { Icons } from '@/assets/icons';
 
-interface OptionsFormData {
+export interface OptionsFormData {
   question: string;
   options: {
     option: string;

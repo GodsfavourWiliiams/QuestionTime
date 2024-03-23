@@ -2,6 +2,7 @@
 
 import * as React from 'react';
 import {
+  ColumnDef,
   ColumnFiltersState,
   SortingState,
   VisibilityState,
@@ -21,18 +22,44 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table';
-import { columns } from './TableColumn';
+import { DataTableRowActions } from './TableColumn';
 
 interface DataTableProps<TData, TValue> {
   data: TData[];
   isLoading?: boolean;
-  refetch?: () => void;
+  refetch: () => void;
 }
 
 export function QuestionTable<TData, TValue>({
   isLoading,
   data,
+  refetch,
 }: DataTableProps<TData, TValue>) {
+  const columns: ColumnDef<any>[] = [
+    {
+      accessorKey: 'question',
+      header: 'Question',
+      cell: ({ row }) => (
+        <div className="capitalize">{row.getValue('question')}</div>
+      ),
+    },
+    {
+      accessorKey: 'no_options',
+      header: 'Options',
+      cell: ({ row }) => (
+        <div className="ml-6">{row.original?.options.length}</div>
+      ),
+    },
+    {
+      id: 'action',
+      enableHiding: false,
+      header: () => (
+        <span className="w-full flex justify-end text-xs">Actions</span>
+      ),
+      cell: ({ row }) => <DataTableRowActions row={row} refetch={refetch} />,
+    },
+  ];
+
   const [sorting, setSorting] = React.useState<SortingState>([]);
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
     []
