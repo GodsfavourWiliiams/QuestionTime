@@ -42,34 +42,35 @@ export const Icons = {
       />
     </svg>
   ),
-  HeroBg: (props: IconProps) => (
+  Logout: (props: IconProps) => (
     <svg
-      width="1440"
-      height="430"
-      viewBox="0 0 1440 430"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
       <path
-        d="M1320 162.006L1786.67 103.653V174.764L1320 233.117V162.006Z"
-        fill="#3A454F"
+        d="M13 11L21.2 2.80005"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
       />
       <path
-        d="M840 151.787L1520 66.4443V137.555L840 222.898V151.787Z"
-        fill="#242E3A"
+        d="M22 6.8V2H17.2"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
       />
       <path
-        d="M1017.78 58.3522L1484.44 0V71.1111L1017.78 129.463V58.3522Z"
-        fill="#27A376"
-      />
-      <path
-        d="M-80 266.463L386.667 208.11V279.221L-80 337.574V266.463Z"
-        fill="#242E3A"
-      />
-      <path
-        d="M-248.889 358.672L217.778 300.32V371.431L-248.889 429.783V358.672Z"
-        fill="#27A376"
+        d="M11 2H9C4 2 2 4 2 9V15C2 20 4 22 9 22H15C20 22 22 20 22 15V13"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
       />
     </svg>
   ),

@@ -1,6 +1,5 @@
 'use client';
 
-import * as React from 'react';
 import { cn } from '@/lib/utils';
 import { Button } from '../ui/button';
 import {
@@ -16,6 +15,9 @@ import { Icons } from '@/assets/icons';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { useLogin } from '@/helpers/api/useAuth';
+import { useEffect } from 'react';
+import { toast } from 'sonner';
 
 interface AuthFormProps extends React.HTMLAttributes<HTMLDivElement> {}
 export const loginFormSchema = z.object({
@@ -27,31 +29,55 @@ export const loginFormSchema = z.object({
     .email(),
 });
 export function AuthForm({ className, ...props }: AuthFormProps) {
-  const [isLoading, setIsLoading] = React.useState<boolean>(false);
+  const {
+    mutate,
+    isLoading,
+    isError: isLoginError,
+    isSuccess: isLoginSuccess,
+    error: loginError,
+  } = useLogin();
   const form = useForm({
     resolver: zodResolver(loginFormSchema),
+    defaultValues: {
+      email: '',
+    },
   });
 
   const {
     formState: { errors },
   } = form;
 
-  async function onSubmit(event: React.SyntheticEvent) {
-    event.preventDefault();
-    setIsLoading(true);
+  const onSubmit = (e: { preventDefault: () => void }) => {
+    e.preventDefault();
+    form.handleSubmit((data: any) => {
+      mutate(data);
+    })();
+  };
 
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 3000);
-  }
+  useEffect(() => {
+    if (isLoginSuccess) {
+      toast.success('Login', {
+        description: 'Successful',
+      });
+    }
+    return () => {
+      toast.dismiss();
+    };
+  }, [isLoginSuccess]);
+
+  useEffect(() => {
+    if (isLoginError) {
+      toast.error('Login Error', { description: 'Error' });
+    }
+    return () => {
+      toast.dismiss();
+    };
+  }, [isLoginError]);
 
   return (
     <div className={cn('grid gap-6', className)} {...props}>
       <Form {...form}>
-        <form
-          className="grid gap-6"
-          onSubmit={form.handleSubmit((data) => console.log(data))}
-        >
+        <form className="grid gap-6" onSubmit={onSubmit}>
           <FormField
             control={form.control}
             name="email"

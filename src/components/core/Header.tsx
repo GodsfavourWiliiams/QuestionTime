@@ -3,15 +3,22 @@
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
 import { AppContainer } from './AppContainer';
-import { usePathname } from 'next/navigation';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { ChevronDownIcon } from '@radix-ui/react-icons';
+import { useRouter } from 'next/navigation';
 import { AppLogo } from '../ui/AppLogo';
+import { useLogout } from '@/helpers/api/useAuth';
+import { Icons } from '@/assets/icons';
+import { Button } from '../ui/button';
 
 type Props = {};
 
 const Header = (props: Props) => {
-  const pathname = usePathname();
+  const router = useRouter();
+
+  const { logoutUser: logout } = useLogout();
+
+  const handleLogout = () => {
+    logout();
+  };
   return (
     <nav className="z-50 relative border-b border-[#F2F4F70D] bg-primary">
       <AppContainer className="flex items-center justify-between py-4">
@@ -22,20 +29,12 @@ const Header = (props: Props) => {
           </Link>
         </div>
         <div className={cn(' gap-4 items-center flex')}>
-          <div className="flex items-center gap-4">
-            <div className="flex items-center gap-2">
-              <Avatar className="border w-10 h-10 ">
-                <AvatarImage src={''} alt="Avatar" />
-                <AvatarFallback>WG</AvatarFallback>
-              </Avatar>
-              <div className="space-y-1 flex items-center gap-2">
-                <p className="text-s font-semibold leading-none capitalize">
-                  Williams Godsfavour
-                </p>
-                <ChevronDownIcon className="w-[14px] h-[14px]" />
-              </div>
-            </div>
-          </div>
+          <Button onClick={handleLogout} className="flex items-center gap-4">
+            <p className="text-s font-semibold leading-none capitalize">
+              Logout
+            </p>
+            <Icons.Logout className="w-[14px] h-[14px] text-white" />
+          </Button>
         </div>
       </AppContainer>
     </nav>
