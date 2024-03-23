@@ -1,7 +1,28 @@
-export default function Home() {
+import React from 'react';
+import { Metadata } from 'next';
+import View from '@/components/pages/dashboard';
+import {
+  HydrationBoundary,
+  QueryClient,
+  dehydrate,
+} from '@tanstack/react-query';
+import { getQuestions } from '@/services';
+
+export const metadata: Metadata = {
+  title: 'Question Time - Home',
+  description: '',
+};
+
+export default async function Home() {
+  const queryClient = new QueryClient();
+  await queryClient.prefetchQuery({
+    queryKey: ['get-questions'],
+    queryFn: async () => await getQuestions.getQuestions(),
+  });
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      Dashboard
-    </main>
+    <HydrationBoundary state={dehydrate(queryClient)}>
+      <View />
+    </HydrationBoundary>
   );
 }
