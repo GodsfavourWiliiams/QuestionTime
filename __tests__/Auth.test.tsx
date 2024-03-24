@@ -1,5 +1,5 @@
 import '@testing-library/jest-dom';
-import { fireEvent, render, screen } from '@testing-library/react';
+import { act, fireEvent, render, screen } from '@testing-library/react';
 import AuthenticationPage from '@/components/auth/Login';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { AuthForm } from '@/components/auth/AuthForm';
@@ -29,7 +29,7 @@ describe('Auth Page', () => {
     expect(heading).toBeInTheDocument();
   });
 
-  test('Test form submission upon clicking the submit button, ensuring the email input exists.', () => {
+  test('Test form submission upon clicking the submit button, ensuring the email input exists.', async () => {
     const { getByText, getByLabelText } = render(
       <QueryClientProvider client={new QueryClient()}>
         <AuthForm />
@@ -43,12 +43,23 @@ describe('Auth Page', () => {
     expect(emailInput).toBeInTheDocument();
 
     // Simulate user interaction
-    fireEvent.change(emailInput, { target: { value: 'name@example.com' } });
-    fireEvent.click(submitButton);
+    await act(async () => {
+      fireEvent.change(emailInput, { target: { value: 'name@example.com' } });
+      fireEvent.click(submitButton);
+    });
 
     // Add validation for email input
     expect(emailInput.value).toMatch(
       /\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b/
     );
+  });
+  test('renders the submit button', () => {
+    const { getByRole } = render(
+      <QueryClientProvider client={new QueryClient()}>
+        <AuthForm />
+      </QueryClientProvider>
+    );
+    const button = getByRole('button'); // Find the button element
+    expect(button).toBeInTheDocument();
   });
 });
