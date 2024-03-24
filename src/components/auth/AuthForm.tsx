@@ -68,7 +68,7 @@ export function AuthForm({ className, ...props }: AuthFormProps) {
   }, [isLoginError]);
 
   return (
-    <div className={cn('grid gap-6', className)} {...props}>
+    <div className={cn('grid gap-6 w-full mt-5', className)} {...props}>
       <Form {...form}>
         <form className="grid gap-6" onSubmit={onSubmit}>
           <FormField

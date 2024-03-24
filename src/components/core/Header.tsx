@@ -24,12 +24,15 @@ const Header = (props: Props) => {
       <AppContainer className="flex items-center justify-between py-4">
         <div className="flex lg:flex-1 items-center gap-x-12">
           <Link href="/" className="-m-1.5 p-1.5">
-            <span className="sr-only">Journal Logo</span>
+            <span className="sr-only">Question time Logo</span>
             <AppLogo background="dark" />
           </Link>
         </div>
         <div className={cn(' gap-4 items-center flex')}>
-          <Button onClick={handleLogout} className="flex items-center gap-4">
+          <Button
+            onClick={handleLogout}
+            className="flex items-center gap-4 p-0"
+          >
             <p className="text-s font-semibold leading-none capitalize">
               Logout
             </p>
