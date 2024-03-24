@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import { AuthForm } from './AuthForm';
 
 export default function AuthenticationPage() {

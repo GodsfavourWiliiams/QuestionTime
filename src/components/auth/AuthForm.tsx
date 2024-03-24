@@ -76,18 +76,21 @@ export function AuthForm({ className, ...props }: AuthFormProps) {
             name="email"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Email Address</FormLabel>
-                <Input
-                  autoFocus
-                  error={!!errors.email}
-                  {...field}
-                  id="email"
-                  placeholder="name@example.com"
-                  type="email"
-                  autoCapitalize="none"
-                  autoComplete="email"
-                  autoCorrect="off"
-                />
+                <FormLabel htmlFor="email">Email Address</FormLabel>
+                <FormControl>
+                  <Input
+                    autoFocus
+                    error={!!errors.email}
+                    {...field}
+                    id="email"
+                    placeholder="name@example.com"
+                    type="email"
+                    autoCapitalize="none"
+                    autoComplete="email"
+                    autoCorrect="off"
+                  />
+                </FormControl>
+
                 <FormMessage />
               </FormItem>
             )}
