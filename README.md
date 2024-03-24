@@ -1,36 +1,76 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## QuestionTime Frontend
 
-## Getting Started
+This repository contains the frontend for the QuestionTime web application.
 
-First, run the development server:
+### Getting Started
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+1. Clone the repo
+2. Install dependencies
+3. Update environment variables
+4. Run the app
+
+### Prerequisites
+
+- Node.js
+- Yarn
+
+### Installing
+
+1. Clone the repo
+
+```sh
+git clone [repoLink]
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Install dependencies
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```sh
+yarn
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+3. Update environment variables
 
-## Learn More
+```sh
+cp .env.example .env.local / .env
+```
 
-To learn more about Next.js, take a look at the following resources:
+4. Run the app
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```sh
+yarn dev
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Usage
 
-## Deploy on Vercel
+1. Upon opening the application, you will be directed to the login page.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+2. Enter your email address to log in.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+3. After successful login, you will be redirected to the dashboard.
+
+4. On the dashboard, you can view all the questions you have created.
+
+5. To create a new question, click on the "New Question" button. This will open a modal where you can enter your question and options. Then, click submit.
+
+6. To edit or delete a question, use the respective action buttons available in the question table.
+
+## Screenshots
+*Login Page: Enter your email to log in.*
+![Authentication](https://github.com/GodsfavourWiliiams/QuestionTime/assets/80661256/f5698189-af99-4265-8c0d-414bd8afeefa)
+
+![Question Time - Home](https://github.com/GodsfavourWiliiams/QuestionTime/assets/80661256/7e572f33-1933-4449-8f1d-6379031a0d36)
+*Dashboard: View and manage your questions.*
+
+![Question Time - Home · 7 08pm · 03-23 (1)](https://github.com/GodsfavourWiliiams/QuestionTime/assets/80661256/4f5e2f6d-7163-4982-9b3b-5675f0b1f45b)
+![Question Time - Home · 7 08pm · 03-23 (2)](https://github.com/GodsfavourWiliiams/QuestionTime/assets/80661256/9e229c86-0f23-426c-a4cb-dd1d6c1e9a2f)
+
+
+## Things to note
+
+1. A structure has been put in place, Please follow as instructed.
+2. We currently use eslint and prettier to format and use best practices for our codebase
+3. Use only Yarn while installing
+4. Add new colours to tailwind config.js as seen in the design.
+5. Please avoid hydration errors.
+
+## MAY THE FORCE BE WITH YOU

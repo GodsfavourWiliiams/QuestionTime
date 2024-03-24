@@ -1,0 +1,65 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders auth unchanged 1`] = `
+<div>
+  <div
+    class="w-full max-w-sm mx-auto h-screen flex-col items-center justify-center flex px-4 lg:px-0"
+  >
+    <div
+      class="flex flex-col space-y-2 text-center"
+    >
+      <h1
+        class="text-2xl font-semibold tracking-tight"
+      >
+        Question Time
+      </h1>
+      <p
+        class="text-sm text-muted-foreground"
+      >
+        Access your QuestionTime account.
+      </p>
+    </div>
+    <div
+      class="grid gap-6 w-full mt-5"
+    >
+      <form
+        class="grid gap-6"
+      >
+        <div
+          class="space-y-2"
+        >
+          <label
+            class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+            for="email"
+          >
+            Email Address
+          </label>
+          <div
+            class="flex items-center h-max w-full rounded-xl border border-input bg-background text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-grayscale-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-primary focus-within:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+          >
+            <input
+              aria-describedby=":r0:-form-item-description"
+              aria-invalid="false"
+              autocapitalize="none"
+              autocomplete="email"
+              autocorrect="off"
+              class="flex-grow h-full w-full rounded-xl px-5 py-4 focus-within:outline-none focus-within:ring-transparent"
+              id="email"
+              name="email"
+              placeholder="name@example.com"
+              type="email"
+              value=""
+            />
+          </div>
+        </div>
+        <button
+          class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-11 rounded-[12px] px-8 py-7 w-full"
+          type="submit"
+        >
+          Sign In with Email
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+`;

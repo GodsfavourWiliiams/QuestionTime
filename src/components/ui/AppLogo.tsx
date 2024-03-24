@@ -9,7 +9,7 @@ export const AppLogo: FC<AppLogoProps> = ({ background = 'light' }) => {
     <div className="flex gap-3 items-center">
       <span
         className={twMerge(
-          `text-2xl font-bold`,
+          `text-xl sm:text-2xl font-bold`,
           background === 'light' ? 'text-body' : 'text-white'
         )}
       >

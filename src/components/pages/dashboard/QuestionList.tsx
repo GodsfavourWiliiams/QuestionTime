@@ -78,6 +78,7 @@ const QuestionList = () => {
     if (questionSuccess) {
       toast.success('Question created successfully');
       refetch();
+      form.reset(optionsDefaultValues);
       onClose();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -91,16 +92,16 @@ const QuestionList = () => {
 
   return (
     <>
-      <div className="flex flex-col gap-6 border py-5 md:py-6 bg-white border-[#F0F5F8] rounded-2xl w-full">
-        <div className="flex items-center justify-between text-primary w-full px-5 md:px-6">
-          <h1 className="font-semibold text-2xl">All Questions</h1>
+      <div className="flex flex-col gap-6 border py-4 md:py-6 bg-white border-[#F0F5F8] rounded-2xl w-full">
+        <div className="flex items-center justify-between text-primary w-full px-4 md:px-6">
+          <h1 className="font-semibold text-xl sm:text-2xl">All Questions</h1>
           <Button
             variant="default"
-            className="w-fit font-semibold flex items-center gap-1.5 p-6"
+            className="w-fit font-semibold flex items-center gap-1.5 p-3 sm:p-6"
             onClick={onOpen}
           >
             <PlusIcon />
-            New Question
+            <p className="hidden sm:block">New Question</p>
           </Button>
         </div>
         <QuestionTable
@@ -115,7 +116,7 @@ const QuestionList = () => {
           onClose();
         }}
       >
-        <DialogContent className="sm:max-w-[500px] outline-none">
+        <DialogContent className="sm:max-w-[500px] h-auto sm:h-fit outline-none">
           <DialogHeader className="gap-1.5">
             <DialogTitle className="text-lg">
               {' '}
@@ -163,7 +164,7 @@ const QuestionList = () => {
                 <Button
                   type="submit"
                   size="lg"
-                  className="rounded-xl p-3.5 text-s w-full mt-4 text-white h-[52px]"
+                  className="rounded-xl p-3.5 text-s w-full text-white h-[52px]"
                   variant="default"
                   disabled={creatingQuestion}
                 >

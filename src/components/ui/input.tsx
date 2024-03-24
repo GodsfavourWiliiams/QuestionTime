@@ -28,7 +28,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
     return (
       <div
         className={cn(
-          'flex items-center h-max w-full rounded-xl border border-input bg-background text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-grayscale-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-primary  focus-within:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50',
+          'flex items-center h-max w-full rounded-xl border border-input bg-background text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-grayscale-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-primary  focus-within:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50',
           className,
           combinedPadding,
           {
