@@ -42,12 +42,14 @@ export const useLogout = () => {
   };
 
   const logoutUser = async () => {
-    clearUserData();
-    await queryClient.invalidateQueries();
-    queryCache.clear();
-    queryClient.clear();
-    await queryClient.resetQueries();
-    router.push('/');
+    clearUserData(); 
+     router.push('/login');
+     router.refresh();
+     await queryClient.invalidateQueries();
+     queryCache.clear();
+     queryClient.clear();
+     await queryClient.resetQueries();
+  
   };
 
   return { logoutUser };

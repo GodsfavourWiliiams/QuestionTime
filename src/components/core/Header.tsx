@@ -3,17 +3,12 @@
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
 import { AppContainer } from './AppContainer';
-import { useRouter } from 'next/navigation';
 import { AppLogo } from '../ui/AppLogo';
 import { useLogout } from '@/helpers/api/useAuth';
 import { Icons } from '@/assets/icons';
 import { Button } from '../ui/button';
 
-type Props = {};
-
-const Header = (props: Props) => {
-  const router = useRouter();
-
+const Header = () => {
   const { logoutUser: logout } = useLogout();
 
   const handleLogout = () => {
