@@ -40,6 +40,12 @@ cp .env.example .env.local / .env
 yarn dev
 ```
 
+5. Run tests
+
+```sh
+yarn test
+```
+
 ## Usage
 
 1. Upon opening the application, you will be directed to the login page.
