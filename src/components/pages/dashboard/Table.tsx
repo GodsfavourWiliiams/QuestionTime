@@ -88,8 +88,8 @@ export function QuestionTable<TData, TValue>({
 
   return (
     <div className="w-full ">
-      <div className=" rounded-md">
-        <Table>
+      <div className="rounded-md">
+        <Table data-testid="question-table">
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
               <TableRow className="pl-3 bg-[#FAFAFA] " key={headerGroup.id}>

@@ -56,13 +56,17 @@ yarn dev
 
 ## Screenshots
 *Login Page: Enter your email to log in.*
-![Authentication](https://github.com/GodsfavourWiliiams/QuestionTime/assets/80661256/f5698189-af99-4265-8c0d-414bd8afeefa)
+![Authentication](https://github.com/GodsfavourWiliiams/QuestionTime/assets/80661256/4ce9f8c1-3f66-4e1a-bcc0-3e1becddc48a)
 
-![Question Time - Home](https://github.com/GodsfavourWiliiams/QuestionTime/assets/80661256/7e572f33-1933-4449-8f1d-6379031a0d36)
+![Question Time - Home](https://github.com/GodsfavourWiliiams/QuestionTime/assets/80661256/3ee29223-b834-4174-aff9-bfbdbce7f5ac)
 *Dashboard: View and manage your questions.*
 
-![Question Time - Home · 7 08pm · 03-23 (1)](https://github.com/GodsfavourWiliiams/QuestionTime/assets/80661256/4f5e2f6d-7163-4982-9b3b-5675f0b1f45b)
-![Question Time - Home · 7 08pm · 03-23 (2)](https://github.com/GodsfavourWiliiams/QuestionTime/assets/80661256/9e229c86-0f23-426c-a4cb-dd1d6c1e9a2f)
+*Mobile screens
+![Authentication · 6 44pm · 03-24](https://github.com/GodsfavourWiliiams/QuestionTime/assets/80661256/79908f13-4a6d-4b2c-8cad-fc5ae5a1224c)
+
+![Question Time - Home · 6 43pm · 03-24](https://github.com/GodsfavourWiliiams/QuestionTime/assets/80661256/d9daa573-f511-4bd5-bdad-d2c7e4becfa7)
+![Question Time - Home · 6 43pm · 03-24 (1)](https://github.com/GodsfavourWiliiams/QuestionTime/assets/80661256/35641e4e-10a2-4896-9ab7-7adcce178fde)
+
 
 
 ## Things to note

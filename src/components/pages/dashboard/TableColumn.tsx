@@ -98,12 +98,14 @@ export function DataTableRowActions({
             e.stopPropagation();
             onOpen();
           }}
+          data-testid={`edit-button-${question?.id}`}
           className="flex h-8 w-8 p-0 hover:bg-[#1c3267]/80 bg-[#1c3267]"
         >
           <Icons.EditIcon className="w-4 h-4" />
         </Button>
         <Button
           variant="ghost"
+          data-testid="delete-button"
           onClick={(e) => {
             e.stopPropagation();
             onDeleteOpen();
@@ -120,7 +122,10 @@ export function DataTableRowActions({
           form.reset(question);
         }}
       >
-        <DialogContent className="sm:max-w-[500px] outline-none">
+        <DialogContent
+          data-testid="edit-dialog"
+          className="sm:max-w-[500px] h-auto sm:h-fit outline-none"
+        >
           <DialogHeader className="gap-1.5">
             <DialogTitle className="text-lg"> Update question</DialogTitle>
           </DialogHeader>
