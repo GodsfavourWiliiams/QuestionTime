@@ -63,3 +63,346 @@ exports[`renders auth unchanged 1`] = `
   </div>
 </div>
 `;
+
+exports[`renders dashboard unchanged 1`] = `
+<div>
+  <div
+    class="app-container flex flex-col py-10 w-full gap-10"
+  >
+    <div
+      class="flex flex-col gap-6 border py-4 md:py-6 bg-white border-[#F0F5F8] rounded-2xl w-full"
+    >
+      <div
+        class="flex items-center justify-between text-primary w-full px-4 md:px-6"
+      >
+        <h1
+          class="font-semibold text-xl sm:text-2xl"
+        >
+          All Questions
+        </h1>
+        <button
+          class="justify-center whitespace-nowrap text-sm ring-offset-background transition-colors focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 rounded-[12px] w-fit font-semibold flex items-center gap-1.5 p-3 sm:p-6"
+        >
+          <svg
+            fill="none"
+            height="15"
+            viewBox="0 0 15 15"
+            width="15"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M8 2.75C8 2.47386 7.77614 2.25 7.5 2.25C7.22386 2.25 7 2.47386 7 2.75V7H2.75C2.47386 7 2.25 7.22386 2.25 7.5C2.25 7.77614 2.47386 8 2.75 8H7V12.25C7 12.5261 7.22386 12.75 7.5 12.75C7.77614 12.75 8 12.5261 8 12.25V8H12.25C12.5261 8 12.75 7.77614 12.75 7.5C12.75 7.22386 12.5261 7 12.25 7H8V2.75Z"
+              fill="currentColor"
+              fill-rule="evenodd"
+            />
+          </svg>
+          <p
+            class="hidden sm:block"
+          >
+            New Question
+          </p>
+        </button>
+      </div>
+      <div
+        class="w-full "
+      >
+        <div
+          class="rounded-md"
+        >
+          <div
+            class="relative w-full overflow-auto"
+          >
+            <table
+              class="w-full caption-bottom text-sm"
+              data-testid="question-table"
+            >
+              <thead
+                class="[&_tr]:border-b"
+              >
+                <tr
+                  class="border-none transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted pl-3 bg-[#FAFAFA]"
+                >
+                  <th
+                    class="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&:has([role=checkbox])]:pr-0 py-4"
+                  >
+                    Question
+                  </th>
+                  <th
+                    class="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&:has([role=checkbox])]:pr-0 py-4"
+                  >
+                    Options
+                  </th>
+                  <th
+                    class="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&:has([role=checkbox])]:pr-0 py-4"
+                  >
+                    <span
+                      class="w-full flex justify-end text-xs"
+                    >
+                      Actions
+                    </span>
+                  </th>
+                </tr>
+              </thead>
+              <tbody
+                class="[&_tr:last-child]:border-0"
+              >
+                <tr
+                  class="border-none transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted"
+                >
+                  <td
+                    class="p-4 align-middle [&:has([role=checkbox])]:pr-0 py-6 pl-2 pr-3"
+                  >
+                    <div
+                      class="w-full h-4 rounded-md animate-pulse bg-slate-200"
+                    />
+                  </td>
+                  <td
+                    class="p-4 align-middle [&:has([role=checkbox])]:pr-0 py-6 pl-2 pr-3"
+                  >
+                    <div
+                      class="w-full h-4 rounded-md animate-pulse bg-slate-200"
+                    />
+                  </td>
+                  <td
+                    class="p-4 align-middle [&:has([role=checkbox])]:pr-0 py-6 pl-2 pr-3"
+                  >
+                    <div
+                      class="w-full h-4 rounded-md animate-pulse bg-slate-200"
+                    />
+                  </td>
+                </tr>
+                <tr
+                  class="border-none transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted"
+                >
+                  <td
+                    class="p-4 align-middle [&:has([role=checkbox])]:pr-0 py-6 pl-2 pr-3"
+                  >
+                    <div
+                      class="w-full h-4 rounded-md animate-pulse bg-slate-200"
+                    />
+                  </td>
+                  <td
+                    class="p-4 align-middle [&:has([role=checkbox])]:pr-0 py-6 pl-2 pr-3"
+                  >
+                    <div
+                      class="w-full h-4 rounded-md animate-pulse bg-slate-200"
+                    />
+                  </td>
+                  <td
+                    class="p-4 align-middle [&:has([role=checkbox])]:pr-0 py-6 pl-2 pr-3"
+                  >
+                    <div
+                      class="w-full h-4 rounded-md animate-pulse bg-slate-200"
+                    />
+                  </td>
+                </tr>
+                <tr
+                  class="border-none transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted"
+                >
+                  <td
+                    class="p-4 align-middle [&:has([role=checkbox])]:pr-0 py-6 pl-2 pr-3"
+                  >
+                    <div
+                      class="w-full h-4 rounded-md animate-pulse bg-slate-200"
+                    />
+                  </td>
+                  <td
+                    class="p-4 align-middle [&:has([role=checkbox])]:pr-0 py-6 pl-2 pr-3"
+                  >
+                    <div
+                      class="w-full h-4 rounded-md animate-pulse bg-slate-200"
+                    />
+                  </td>
+                  <td
+                    class="p-4 align-middle [&:has([role=checkbox])]:pr-0 py-6 pl-2 pr-3"
+                  >
+                    <div
+                      class="w-full h-4 rounded-md animate-pulse bg-slate-200"
+                    />
+                  </td>
+                </tr>
+                <tr
+                  class="border-none transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted"
+                >
+                  <td
+                    class="p-4 align-middle [&:has([role=checkbox])]:pr-0 py-6 pl-2 pr-3"
+                  >
+                    <div
+                      class="w-full h-4 rounded-md animate-pulse bg-slate-200"
+                    />
+                  </td>
+                  <td
+                    class="p-4 align-middle [&:has([role=checkbox])]:pr-0 py-6 pl-2 pr-3"
+                  >
+                    <div
+                      class="w-full h-4 rounded-md animate-pulse bg-slate-200"
+                    />
+                  </td>
+                  <td
+                    class="p-4 align-middle [&:has([role=checkbox])]:pr-0 py-6 pl-2 pr-3"
+                  >
+                    <div
+                      class="w-full h-4 rounded-md animate-pulse bg-slate-200"
+                    />
+                  </td>
+                </tr>
+                <tr
+                  class="border-none transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted"
+                >
+                  <td
+                    class="p-4 align-middle [&:has([role=checkbox])]:pr-0 py-6 pl-2 pr-3"
+                  >
+                    <div
+                      class="w-full h-4 rounded-md animate-pulse bg-slate-200"
+                    />
+                  </td>
+                  <td
+                    class="p-4 align-middle [&:has([role=checkbox])]:pr-0 py-6 pl-2 pr-3"
+                  >
+                    <div
+                      class="w-full h-4 rounded-md animate-pulse bg-slate-200"
+                    />
+                  </td>
+                  <td
+                    class="p-4 align-middle [&:has([role=checkbox])]:pr-0 py-6 pl-2 pr-3"
+                  >
+                    <div
+                      class="w-full h-4 rounded-md animate-pulse bg-slate-200"
+                    />
+                  </td>
+                </tr>
+                <tr
+                  class="border-none transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted"
+                >
+                  <td
+                    class="p-4 align-middle [&:has([role=checkbox])]:pr-0 py-6 pl-2 pr-3"
+                  >
+                    <div
+                      class="w-full h-4 rounded-md animate-pulse bg-slate-200"
+                    />
+                  </td>
+                  <td
+                    class="p-4 align-middle [&:has([role=checkbox])]:pr-0 py-6 pl-2 pr-3"
+                  >
+                    <div
+                      class="w-full h-4 rounded-md animate-pulse bg-slate-200"
+                    />
+                  </td>
+                  <td
+                    class="p-4 align-middle [&:has([role=checkbox])]:pr-0 py-6 pl-2 pr-3"
+                  >
+                    <div
+                      class="w-full h-4 rounded-md animate-pulse bg-slate-200"
+                    />
+                  </td>
+                </tr>
+                <tr
+                  class="border-none transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted"
+                >
+                  <td
+                    class="p-4 align-middle [&:has([role=checkbox])]:pr-0 py-6 pl-2 pr-3"
+                  >
+                    <div
+                      class="w-full h-4 rounded-md animate-pulse bg-slate-200"
+                    />
+                  </td>
+                  <td
+                    class="p-4 align-middle [&:has([role=checkbox])]:pr-0 py-6 pl-2 pr-3"
+                  >
+                    <div
+                      class="w-full h-4 rounded-md animate-pulse bg-slate-200"
+                    />
+                  </td>
+                  <td
+                    class="p-4 align-middle [&:has([role=checkbox])]:pr-0 py-6 pl-2 pr-3"
+                  >
+                    <div
+                      class="w-full h-4 rounded-md animate-pulse bg-slate-200"
+                    />
+                  </td>
+                </tr>
+                <tr
+                  class="border-none transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted"
+                >
+                  <td
+                    class="p-4 align-middle [&:has([role=checkbox])]:pr-0 py-6 pl-2 pr-3"
+                  >
+                    <div
+                      class="w-full h-4 rounded-md animate-pulse bg-slate-200"
+                    />
+                  </td>
+                  <td
+                    class="p-4 align-middle [&:has([role=checkbox])]:pr-0 py-6 pl-2 pr-3"
+                  >
+                    <div
+                      class="w-full h-4 rounded-md animate-pulse bg-slate-200"
+                    />
+                  </td>
+                  <td
+                    class="p-4 align-middle [&:has([role=checkbox])]:pr-0 py-6 pl-2 pr-3"
+                  >
+                    <div
+                      class="w-full h-4 rounded-md animate-pulse bg-slate-200"
+                    />
+                  </td>
+                </tr>
+                <tr
+                  class="border-none transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted"
+                >
+                  <td
+                    class="p-4 align-middle [&:has([role=checkbox])]:pr-0 py-6 pl-2 pr-3"
+                  >
+                    <div
+                      class="w-full h-4 rounded-md animate-pulse bg-slate-200"
+                    />
+                  </td>
+                  <td
+                    class="p-4 align-middle [&:has([role=checkbox])]:pr-0 py-6 pl-2 pr-3"
+                  >
+                    <div
+                      class="w-full h-4 rounded-md animate-pulse bg-slate-200"
+                    />
+                  </td>
+                  <td
+                    class="p-4 align-middle [&:has([role=checkbox])]:pr-0 py-6 pl-2 pr-3"
+                  >
+                    <div
+                      class="w-full h-4 rounded-md animate-pulse bg-slate-200"
+                    />
+                  </td>
+                </tr>
+                <tr
+                  class="border-none transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted"
+                >
+                  <td
+                    class="p-4 align-middle [&:has([role=checkbox])]:pr-0 py-6 pl-2 pr-3"
+                  >
+                    <div
+                      class="w-full h-4 rounded-md animate-pulse bg-slate-200"
+                    />
+                  </td>
+                  <td
+                    class="p-4 align-middle [&:has([role=checkbox])]:pr-0 py-6 pl-2 pr-3"
+                  >
+                    <div
+                      class="w-full h-4 rounded-md animate-pulse bg-slate-200"
+                    />
+                  </td>
+                  <td
+                    class="p-4 align-middle [&:has([role=checkbox])]:pr-0 py-6 pl-2 pr-3"
+                  >
+                    <div
+                      class="w-full h-4 rounded-md animate-pulse bg-slate-200"
+                    />
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

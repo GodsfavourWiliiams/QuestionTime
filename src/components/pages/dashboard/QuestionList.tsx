@@ -116,7 +116,10 @@ const QuestionList = () => {
           onClose();
         }}
       >
-        <DialogContent className="sm:max-w-[500px] h-auto sm:h-fit outline-none">
+        <DialogContent
+          className="sm:max-w-[500px] h-auto sm:h-fit outline-none"
+          data-testid="new_dialog"
+        >
           <DialogHeader className="gap-1.5">
             <DialogTitle className="text-lg">
               {' '}

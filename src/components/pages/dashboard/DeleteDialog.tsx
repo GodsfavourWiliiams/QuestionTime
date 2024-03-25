@@ -53,7 +53,7 @@ export function DeleteDialog({
         onClose();
       }}
     >
-      <AlertDialogContent>
+      <AlertDialogContent data-testid="deletion-modal">
         <AlertDialogHeader>
           <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
           <AlertDialogDescription>
