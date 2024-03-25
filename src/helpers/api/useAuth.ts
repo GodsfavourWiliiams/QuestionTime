@@ -4,8 +4,8 @@ import { useCookies } from '@/hooks/useCookies';
 import { URL } from '@/lib/routes';
 import { TOKEN } from '@/lib/utils';
 import { QueryClient, useMutation } from '@tanstack/react-query';
-import { useRouter } from 'next/navigation';
 import { QueryCache } from '@tanstack/react-query';
+import { useRouter } from 'next-nprogress-bar';
 
 export const useLogin = () => {
   const router = useRouter();
