@@ -48,7 +48,6 @@ export const useLogout = () => {
     queryClient.clear();
     await queryClient.resetQueries();
     router.push('/');
-    router.refresh();
   };
 
   return { logoutUser };
